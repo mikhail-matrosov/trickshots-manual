@@ -1,5 +1,3 @@
-# Trickshots
-
 [Blender](https://www.blender.org/) add-on for executing trickshots using physics simulation. You write a short scenario and this Python package will run numerous simulations to find the right scene parameters to fulfill the scenario. It is a fast way to win a game called dude, perfect!
 
 - No fakes - physics is simulated with Blender for real.

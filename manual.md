@@ -1,5 +1,3 @@
-# Trickshots Manual
-
 Let's have a closer look at this example:
 
 ```python
@@ -14,7 +12,7 @@ def scenario():
 solve(scenario)
 ```
 
-This short piece is enough for animating [pitched_boxes](https://github.com/mikhail-matrosov/trickshots-examples/):
+This short piece is enough for animating [pitched boxes](https://github.com/mikhail-matrosov/trickshots-examples/):
 
 <video src="bouncyball.mp4" controls style="max-width: 450px;" loop autoplay>
 </video>
@@ -59,7 +57,7 @@ Operator `&` (AND) combines two tasks in such a way that both are pursued and th
 yield trigger(hit('cube1', 'target1')) & trigger(hit('cube2', 'target2'))
 ```
 
-Let's also have a look at the [bottle_flip](https://github.com/mikhail-matrosov/trickshots-examples/) example:
+Let's also have a look at the [bottle flip](https://github.com/mikhail-matrosov/trickshots-examples/) example:
 
 <video src="bottle_flip.mp4" controls style="max-width: 450px;" loop autoplay>
 </video>
@@ -70,13 +68,13 @@ def btl_angle():
 
 def scenario():
     bottle = bpy.context.scene.objects['bottle']
-    set_avel(bottle, [0, -5, 0])  # pt. 1 - set angular velocity
+    set_avel(bottle, [0, -5, 0])  # pt. 1
     set_vel(bottle, var3([0,0,0], [10, 0, 10]))
-    yield hit(bottle, 'target')  # pt. 2 - touches the floor center
+    yield hit(bottle, 'target')  # pt. 2
     yield least_squares(btl_angle()) & delay(10)  # pt. 3
     yield least_squares(btl_angle()) & hit(bottle, 'trigger')  # pt. 4
     yield least_squares(btl_angle()) & (wait_deactivation(bottle) | delay(100))
-    yield hit(bottle, 'trigger')  # pt. 6 - still touches the trigger
+    yield hit(bottle, 'trigger')  # pt. 6
 
 def escape():
     x, y, z = get_pos('bottle')
@@ -113,7 +111,7 @@ This is not the required sequence of checks for the bottle flip to happen, but t
 
 `is_deactivated(obj)` Returns boolean if the object is deactivated - stopped moving and rests in one place. This works independently from Blender's deactivation option of a rigid body.
 
-`least_squares(expr)` Constructs a Task for the solver to minimize sum of squares of the given expression, which might be an array or a single number. The task doesn't force the solver to find an exact minimum and doesn't block the scenario, but the solver will prefer solutions with lower norm of the expression. This can be used to guide the solver to a specific solution. See an example of usage in [bottle_flip](https://github.com/mikhail-matrosov/trickshots-examples/)
+`least_squares(expr)` Constructs a Task for the solver to minimize sum of squares of the given expression, which might be an array or a single number. The task doesn't force the solver to find an exact minimum and doesn't block the scenario, but the solver will prefer solutions with lower norm of the expression. This can be used to guide the solver to a specific solution. See an example of usage in [bottle flip](https://github.com/mikhail-matrosov/trickshots-examples/)
 
 `set_avel(obj, vector)` Sets the object's angular velocity for the current frame. Vector is an axis-angle velocity in global space.
 
