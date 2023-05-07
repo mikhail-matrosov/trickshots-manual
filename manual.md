@@ -12,7 +12,7 @@ def scenario():
 solve(scenario)
 ```
 
-This short piece is enough for animating [pitched boxes](https://github.com/mikhail-matrosov/trickshots-examples/):
+This short piece is enough for animating [pitched boxes scene](https://github.com/mikhail-matrosov/trickshots-examples/):
 
 <video src="bouncyball.mp4" controls style="max-width: 450px;" loop autoplay>
 </video>
@@ -111,7 +111,7 @@ This is not the required sequence of checks for the bottle flip to happen, but t
 
 `is_deactivated(obj)` Returns boolean if the object is deactivated - stopped moving and rests in one place. This works independently from Blender's deactivation option of a rigid body.
 
-`least_squares(expr)` Constructs a Task for the solver to minimize sum of squares of the given expression, which might be an array or a single number. The task doesn't force the solver to find an exact minimum and doesn't block the scenario, but the solver will prefer solutions with lower norm of the expression. This can be used to guide the solver to a specific solution. See an example of usage in [bottle flip](https://github.com/mikhail-matrosov/trickshots-examples/)
+`least_squares(expr)` Constructs a Task for the solver to minimize sum of squares of the given expression, which might be an array or a single number. The task doesn't force the solver to find an exact minimum and doesn't block the scenario, but the solver will prefer solutions with a lower norm of the expression. This can be used to guide the solver to a specific solution. See a usage example in [bottle flip](https://github.com/mikhail-matrosov/trickshots-examples/)
 
 `set_avel(obj, vector)` Sets the object's angular velocity for the current frame. Vector is an axis-angle velocity in global space.
 
@@ -123,12 +123,12 @@ This is not the required sequence of checks for the bottle flip to happen, but t
 
 `solve(scenario, callback=None, iters=1000, polish_iters=0, retries=10)` Invoke the solver. The solver will make `iters` iterations and retry up to `retries` times in case it wouldn't converge. After the solution is found it will run additional `polish_iters` iterations to find an even better solution. Note that in some cases Blender physics is not reliable enough and these additional iterations will disturb the solution and it won't be reproduced anymore. In such cases don't use polishing. Instead in the Properties panel go to Scene Properties tab -> Rigid Body World -> Cache -> Current Cache to Bake to freeze the found solution right after the solver finished it's work. Returns a Solution object.
 
-`solver.ScenarioLoss` An objects that holds a loss value for the scenario. It is designed in such a way that you can directly compare it by using operator `<` to find which solution is better.
-`task_ix` Index number of the last yielded from the scenario task, starting from 0 and counting negative numbers.
-`finished` 0 or -1 (if the task was successfully finished).
-`loss` Norm of the `err_vec`.
-`frame` Current frame number.
-`hint` A scalar value to guide the solver in case it stuck on a platoe.
+`solver.ScenarioLoss` An objects that holds a loss value for the scenario. It is designed in such a way that you can directly compare it by using operator `<` to find which solution is better.  
+`task_ix` Index number of the last yielded from the scenario task, starting from 0 and counting negative numbers.  
+`finished` 0 or -1 (if the task was successfully finished).  
+`loss` Norm of the `err_vec`.  
+`frame` Current frame number.  
+`hint` A scalar value to guide the solver in case it stuck on a platoe.  
 `err_vec` An error vector, numpy.Array of concatenated errors returned by the current task.
 
 `solver.Solution` An objects that holds a found solution. x y iters retries problem  
