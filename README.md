@@ -38,7 +38,7 @@ In Blender go to Edit -> Preferences -> Add-ons tab, press Install button and se
 
 ### Tutorial
 
-Please read [the full manual](manual.md). And here's just a small example:
+Please read [the full manual](manual). And here's just a small example:
 
 ```python
 def scenario():
