@@ -63,11 +63,12 @@ Let's also have a look at the [bottle flip](https://github.com/mikhail-matrosov/
 </video>
 
 ```python
+bottle = bpy.context.scene.objects['bottle']
+
 def btl_angle():
     return bottle.matrix_world.to_quaternion().angle
 
 def scenario():
-    bottle = bpy.context.scene.objects['bottle']
     set_avel(bottle, [0, -5, 0])  # pt. 1
     set_vel(bottle, var3([0,0,0], [10, 0, 10]))
     yield hit(bottle, 'target')  # pt. 2
@@ -77,7 +78,7 @@ def scenario():
     yield hit(bottle, 'trigger')  # pt. 6
 
 def escape():
-    x, y, z = get_pos('bottle')
+    x, y, z = get_pos(bottle)
     return not ((-5 < x < 5) and (-5 < y < 5) and (0.5 < z < 10))
 
 solve(scenario, escape)
