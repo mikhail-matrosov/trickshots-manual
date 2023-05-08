@@ -33,7 +33,7 @@ Not supported: 2.93 and earlier
 
 ### Installation
 
-In Blender go to Edit -> Preferences -> Add-ons tab, press Install button and select trickshots.zip.
+In Blender go to Edit -> Preferences -> Add-ons tab, press Install and select trickshots.zip.
 
 
 ### Tutorial
@@ -52,7 +52,7 @@ solve(scenario)
 
 This short piece of code is enough for animating the shot:
 
-<video src="bouncyball.mp4" controls style="max-width: 450px;" loop autoplay>
+<video src="bouncyball.mp4" controls style="max-width: min(500px, 100%);" loop autoplay>
 </video>
 
 More examples of Blender scenes together with corresponding scenarios written in Python are available [here](https://github.com/mikhail-matrosov/trickshots-examples).
