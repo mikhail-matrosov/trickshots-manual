@@ -1,7 +1,8 @@
 [Blender](https://www.blender.org/) add-on for executing trickshots using physics simulation. You write a short scenario and this Python package will run numerous simulations to find the right scene parameters to fulfill the scenario. It is a fast way to win a game called dude, perfect!
 
-<video src="composed.mp4" controls style="max-width: min(500px, 100%);" loop autoplay>
-</video>
+|![](cover.jpg)|![](1.jpg)|![](2.jpg)|
+|------|------|------|
+|![](3.jpg)|![](4.jpg)|![](5.jpg)|
 
 - No fakes - physics is simulated with Blender for real.
 - Unique solver allows creating variables and optimization tasks as scenario unfolds.
@@ -10,6 +11,8 @@
 
 You can use this package for motion design, robotics, education and who knows what else.
 
+<video src="composed.mp4" controls style="max-width: min(500px, 100%);" loop autoplay>
+</video>
 
 ### Features
 
