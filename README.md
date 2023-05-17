@@ -5,7 +5,7 @@
 |![](3.jpg)|![](4.jpg)|![](5.jpg)|
 
 - No fakes - physics is simulated with Blender for real.
-- Unique solver allows creating variables and optimization tasks as scenario unfolds.
+- Original solver allows creating variables and optimization tasks as scenario unfolds.
 - Can handle any scene parameters.
 - Includes convenience functions for setting initial object velocity and detecting scenario events.
 
